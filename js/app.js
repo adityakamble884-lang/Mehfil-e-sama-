@@ -815,7 +815,8 @@ class MehfilAppUI {
   }
 
   copyUpiId() {
-    const upiId = "mehfil@upi";
+    const upiEl = document.querySelector('.upi-id-code');
+    const upiId = upiEl ? upiEl.textContent.trim() : "adityakamble884@okhdfcbank";
     navigator.clipboard.writeText(upiId).then(() => {
       this.showToast(`UPI ID "${upiId}" copied to clipboard! Shukriya 🙏`, 'success');
     }).catch(() => {
