@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Clean UPI QR Mockup SVG with central Diya badge -->
+  <rect width="200" height="200" fill="#ffffff" rx="10" />
+  
+  <!-- Outer Finder Patterns (Top-Left, Top-Right, Bottom-Left) -->
+  <!-- Top-Left -->
+  <rect x="18" y="18" width="46" height="46" fill="#14060b" rx="4" />
+  <rect x="25" y="25" width="32" height="32" fill="#ffffff" rx="2" />
+  <rect x="32" y="32" width="18" height="18" fill="#d4af37" rx="2" />
+
+  <!-- Top-Right -->
+  <rect x="136" y="18" width="46" height="46" fill="#14060b" rx="4" />
+  <rect x="143" y="25" width="32" height="32" fill="#ffffff" rx="2" />
+  <rect x="150" y="32" width="18" height="18" fill="#d4af37" rx="2" />
+
+  <!-- Bottom-Left -->
+  <rect x="18" y="136" width="46" height="46" fill="#14060b" rx="4" />
+  <rect x="25" y="143" width="32" height="32" fill="#ffffff" rx="2" />
+  <rect x="32" y="150" width="18" height="18" fill="#d4af37" rx="2" />
+
+  <!-- Data Matrix Cells (Stylized QR Dots) -->
+  <!-- Row 1 & 2 -->
+  <rect x="74" y="20" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="88" y="20" width="16" height="8" fill="#14060b" rx="1" />
+  <rect x="112" y="20" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="74" y="34" width="14" height="8" fill="#14060b" rx="1" />
+  <rect x="96" y="34" width="8" height="14" fill="#14060b" rx="1" />
+  <rect x="114" y="34" width="12" height="8" fill="#14060b" rx="1" />
+  <rect x="74" y="48" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="110" y="48" width="16" height="8" fill="#14060b" rx="1" />
+
+  <!-- Timing Patterns -->
+  <rect x="42" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="42" y="90" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="42" y="106" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="42" y="122" width="8" height="8" fill="#14060b" rx="1" />
+
+  <rect x="74" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="90" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="106" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="122" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="138" y="74" width="8" height="8" fill="#14060b" rx="1" />
+  <rect x="154" y="74" width="18" height="8" fill="#14060b" rx="1" />
+
+  <!-- Center Badge (Mehfil Emblem) -->
+  <rect x="75" y="75" width="50" height="50" fill="#1c0b12" rx="8" stroke="#d4af37" stroke-width="2" />
+  <!-- Mini Diya Inside Center Badge -->
+  <path d="M 88 108 Q 100 118 112 108 Z" fill="#d4af37" />
+  <path d="M 100 86 C 94 94, 94 102, 100 106 C 106 102, 106 94, 100 86 Z" fill="#ffb347" />
+
+  <!-- Bottom Data Grid -->
+  <rect x="74" y="136" width="12" height="12" fill="#14060b" rx="1" />
+  <rect x="94" y="136" width="8" height="16" fill="#14060b" rx="1" />
+  <rect x="110" y="136" width="16" height="8" fill="#14060b" rx="1" />
+  <rect x="134" y="136" width="8" height="18" fill="#14060b" rx="1" />
+  <rect x="150" y="136" width="14" height="8" fill="#14060b" rx="1" />
+  <rect x="172" y="136" width="8" height="8" fill="#14060b" rx="1" />
+
+  <rect x="74" y="156" width="8" height="24" fill="#14060b" rx="1" />
+  <rect x="90" y="160" width="14" height="8" fill="#14060b" rx="1" />
+  <rect x="112" y="152" width="12" height="14" fill="#14060b" rx="1" />
+  <rect x="130" y="162" width="22" height="8" fill="#14060b" rx="1" />
+  <rect x="160" y="152" width="8" height="18" fill="#14060b" rx="1" />
+  <rect x="176" y="160" width="8" height="12" fill="#14060b" rx="1" />
+</svg>

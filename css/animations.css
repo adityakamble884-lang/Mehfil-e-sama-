@@ -1,0 +1,122 @@
+/**
+ * ============================================================================
+ * MEHFIL - AMBIENT ANIMATIONS (animations.css)
+ * ============================================================================
+ * Flame flickers, visualizer wave oscillations, arch aura,
+ * and reduced-motion accessibility.
+ */
+
+/* Realistic Diya Candle Flame Flicker */
+@keyframes flameFlicker {
+  0% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 16px rgba(255, 179, 71, 0.8));
+  }
+  20% {
+    transform: scale(1.06, 0.95) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 24px rgba(255, 179, 71, 0.95));
+  }
+  45% {
+    transform: scale(0.97, 1.04) rotate(-1.8deg);
+    opacity: 0.88;
+    filter: drop-shadow(0 0 14px rgba(255, 150, 40, 0.75));
+  }
+  70% {
+    transform: scale(1.04, 0.98) rotate(1deg);
+    opacity: 0.96;
+    filter: drop-shadow(0 0 20px rgba(255, 179, 71, 0.9));
+  }
+  90% {
+    transform: scale(0.98, 1.02) rotate(-0.8deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 18px rgba(255, 160, 50, 0.85));
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.94;
+    filter: drop-shadow(0 0 22px rgba(255, 179, 71, 0.9));
+  }
+}
+
+/* Equalizer Bars Wave Animation */
+@keyframes eqBounce {
+  0% {
+    height: 4px;
+    opacity: 0.5;
+  }
+  50% {
+    height: 38px;
+    opacity: 1;
+  }
+  100% {
+    height: 10px;
+    opacity: 0.7;
+  }
+}
+
+/* Subtle Breathing Glow for Mughal Arch */
+@keyframes archBreathingGlow {
+  0% {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.12);
+  }
+  50% {
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 65px rgba(212, 175, 55, 0.22);
+  }
+  100% {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.12);
+  }
+}
+
+.player-card {
+  animation: archBreathingGlow 8s infinite ease-in-out;
+}
+
+/* Button Spinners */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Soft Lantern Glow Pulsation */
+@keyframes lanternPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+/* Reduced Motion Mode Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .diya-flame {
+    animation: none !important;
+  }
+  .eq-bar.dancing {
+    animation: none !important;
+    height: 18px !important;
+  }
+  .player-card {
+    animation: none !important;
+  }
+}

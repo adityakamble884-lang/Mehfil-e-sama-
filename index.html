@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Mehfil | Free Online Qawwali Radio: Coke Studio, NFAK & Trending Qawwalis</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Immerse in Mehfil (महफ़िल / محفل), a free ambient Qawwali radio streaming Coke Studio Sufi sessions, Nusrat Fateh Ali Khan classics, and sacred devotional hymns. Continuous listening, no sign-up, no ads.">
+  <meta name="keywords" content="Qawwali playlist, NFAK qawwali, Coke Studio qawwali, trending qawwali, Sufi music online, Mehfil-e-Sama, Nusrat Fateh Ali Khan, Amir Khusrau, Sufi radio, ambient radio">
+  <meta name="author" content="Mehfil Radio">
+  <meta name="theme-color" content="#180a10">
+  <link rel="canonical" href="https://mehfil.radio/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mehfil.radio/">
+  <meta property="og:title" content="Mehfil | Free Online Qawwali Radio: Coke Studio, NFAK & Trending Qawwalis">
+  <meta property="og:description" content="Free ambient Qawwali radio streaming Coke Studio, Nusrat Fateh Ali Khan, and sacred Sufi anthems. Candlelit, soulful, ad-free.">
+  <meta property="og:image" content="./img/icon-512.svg">
+  <meta property="og:site_name" content="Mehfil Radio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mehfil.radio/">
+  <meta name="twitter:title" content="Mehfil | Free Online Qawwali Radio">
+  <meta name="twitter:description" content="Experience late-night Sufi Mehfil-e-Sama in your browser. Continuous Coke Studio & NFAK Qawwali radio.">
+  <meta name="twitter:image" content="./img/icon-512.svg">
+
+  <!-- Favicon & PWA Manifest -->
+  <link rel="icon" type="image/svg+xml" href="./img/icon-192.svg">
+  <link rel="apple-touch-icon" href="./img/icon-192.svg">
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Application CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/player.css">
+  <link rel="stylesheet" href="./css/animations.css">
+
+  <!-- Structured Data: JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://mehfil.radio/#website",
+        "url": "https://mehfil.radio/",
+        "name": "Mehfil - Ambient Qawwali Radio",
+        "description": "Free continuous ambient Qawwali radio streaming Coke Studio, Nusrat Fateh Ali Khan classics, and sacred Sufi hymns.",
+        "inLanguage": ["en", "ur", "hi"]
+      },
+      {
+        "@type": "MusicPlaylist",
+        "name": "Mehfil Sufi Qawwali Radio",
+        "numTracks": 23,
+        "genre": "Qawwali, Sufi, Devotional",
+        "description": "Continuous ambient radio stream of classical and modern Qawwalis."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Mehfil and how does this Qawwali radio work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mehfil (महफ़िल / محفل) is a free ambient web radio recreating the devotional atmosphere of a late-night Sufi musical gathering (Mehfil-e-Sama). It streams curated Qawwali playlists continuously without registrations or ads."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Mehfil play audio through YouTube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mehfil uses the official YouTube IFrame Player API to stream music legitimately. No audio or video files are hosted on our servers; all streaming plays through YouTube's embedded player so original artists, channels, and labels receive full royalties and views."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who was Hazrat Amir Khusrau and why is he called the Father of Qawwali?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hazrat Amir Khusrau (1253–1325 CE) was a legendary Sufi poet and musician disciple of Hazrat Nizamuddin Auliya in Delhi. He blended Persian, Arabic, Turkish, and Indian musical traditions to invent the Qawwali genre, as well as the sitar and tabla."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I listen to Mehfil on my mobile phone with screen locked?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Mehfil implements the Media Session API, which provides lock-screen audio metadata and playback controls on compatible mobile browsers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I customize or add my own Qawwali playlists?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All playlists and tracks are defined in the open js/playlists.js file. You can easily add any YouTube video ID or full YouTube playlist ID to customize your listening experience."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ambient Rose Petals & Golden Embers Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       INTRO CURTAIN OVERLAY ("Enter the Mehfil" / Autoplay Gate)
+       ========================================================================= -->
+  <div class="intro-overlay" id="intro-overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="intro-card">
+      <div class="intro-diya-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor">
+          <path d="M 16 46 Q 32 58 48 46 Z" fill="#d4af37" stroke="#fae498" stroke-width="2" />
+          <path d="M 32 14 C 24 28, 22 38, 32 44 C 42 38, 40 28, 32 14 Z" fill="url(#introFlame)" />
+          <defs>
+            <radialGradient id="introFlame" cx="50%" cy="80%" r="60%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="35%" stop-color="#ffd000" />
+              <stop offset="75%" stop-color="#ff6600" />
+              <stop offset="100%" stop-color="transparent" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 id="intro-title">MEHFIL</h1>
+      <div class="intro-urdu-subtitle">محفلِ سماع</div>
+      <p class="intro-loader-text">"Mehfil sajne wali hai..." (The Mehfil is about to begin)</p>
+      
+      <button class="enter-mehfil-btn" id="enter-mehfil-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        शुरू करें / Enter the Mehfil
+      </button>
+
+      <p class="intro-disclaimer-note">
+        Audio streams legally via YouTube's official embedded player.<br>
+        Candlelit ambient gathering • Continuous spiritual streaming.
+      </p>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-group" aria-label="Mehfil Home">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z" fill="var(--amber-candle)"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">MEHFIL</span>
+          <span class="brand-sub">محفل • Sama Radio</span>
+        </div>
+      </a>
+
+      <nav class="nav-actions" aria-label="Quick Actions">
+        <!-- PWA Install Button -->
+        <button class="nav-btn install-app-btn" type="button" aria-label="Install Mehfil App">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Install App</span>
+        </button>
+
+        <!-- Ambient Petals Toggle -->
+        <button class="nav-btn active" id="particles-toggle-btn" type="button" title="Toggle Ambient Rose Petals" aria-label="Toggle Ambient Rose Petals">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+          </svg>
+          <span>Petals</span>
+        </button>
+
+        <!-- Zen Mode Toggle -->
+        <button class="nav-btn" id="zen-toggle-btn" type="button" title="Zen / Ambient Cinema Mode (Key: Z)" aria-label="Zen Mode">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span>Zen</span>
+        </button>
+
+        <!-- Keyboard Shortcuts Help -->
+        <button class="nav-btn" id="open-shortcuts-btn" type="button" title="Keyboard Shortcuts (Key: ?)" aria-label="Keyboard Shortcuts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </button>
+
+        <!-- Support / Chai Button -->
+        <button class="nav-btn open-support-trigger" type="button" aria-label="Support Mehfil with Chai">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+            <line x1="6" y1="1" x2="6" y2="4"></line>
+            <line x1="10" y1="1" x2="10" y2="4"></line>
+            <line x1="14" y1="1" x2="14" y2="4"></line>
+          </svg>
+          <span>Chai</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- HERO & MUGHAL ARCH RADIO PLAYER -->
+    <section class="hero-section" id="hero" aria-label="Mehfil Player">
+
+      <!-- Playlist Selection Tabs/Chips Above Player -->
+      <div class="playlist-chips-container" role="tablist" aria-label="Qawwali Playlists">
+        <button class="playlist-tab active" data-playlist="coke-studio" role="tab" aria-selected="true" type="button">
+          <span>🕌</span> Coke Studio
+        </button>
+        <button class="playlist-tab" data-playlist="nfak" role="tab" aria-selected="false" type="button">
+          <span>🪕</span> NFAK Classics
+        </button>
+        <button class="playlist-tab" data-playlist="trending" role="tab" aria-selected="false" type="button">
+          <span>✨</span> Trending Anthems
+        </button>
+        <button class="playlist-tab" data-playlist="all" role="tab" aria-selected="false" type="button">
+          <span>🔀</span> Shuffle All
+        </button>
+      </div>
+
+      <!-- Outer Player Frame With Flanking Diyas -->
+      <div class="player-outer-frame">
+
+        <!-- Left Glowing Diya Lamp -->
+        <div class="diya-lantern-flank diya-flank-left" aria-hidden="true">
+          <div class="diya-lamp">
+            <div class="diya-flame"></div>
+            <div class="diya-bowl"></div>
+          </div>
+        </div>
+
+        <!-- Right Glowing Diya Lamp -->
+        <div class="diya-lantern-flank diya-flank-right" aria-hidden="true">
+          <div class="diya-lamp">
+            <div class="diya-flame"></div>
+            <div class="diya-bowl"></div>
+          </div>
+        </div>
+
+        <!-- Central Mughal Arch Player Card -->
+        <article class="player-card" aria-label="Now Playing Deck">
+          <!-- Top Mughal Arch Motif -->
+          <div class="arch-top-motif" aria-hidden="true">
+            <svg viewBox="0 0 120 48" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M 10 48 L 10 24 Q 10 6 36 6 Q 60 2 60 0 Q 60 2 84 6 Q 110 6 110 24 L 110 48" stroke-linecap="round"></path>
+              <circle cx="60" cy="14" r="3" fill="var(--gold-primary)"></circle>
+            </svg>
+          </div>
+
+          <!-- Current Track Metadata -->
+          <div class="track-badge" id="track-badge">Modern Classic</div>
+          <h2 class="track-title" id="track-title">Tajdar-e-Haram</h2>
+          <div class="track-urdu-title" id="track-urdu-title">تاجدارِ حرم</div>
+          <div class="track-artist" id="track-artist">Atif Aslam • Coke Studio Season 8</div>
+          <div class="track-couplet-snippet" id="track-couplet-snippet">
+            "क़िस्मत में मेरी चैन से जीना लिख दे, डूबे न कभी मेरा सफ़ीना लिख दे।"
+          </div>
+
+          <!-- Animated Sitar / Harmonium Equalizer Visualizer (20 bars) -->
+          <div class="visualizer-container" aria-hidden="true">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+          </div>
+
+          <!-- Seekbar & Scrubbing -->
+          <div class="progress-container">
+            <span class="time-stamp" id="current-time">00:00</span>
+            <div class="progress-bar-wrapper" id="progress-bar" role="slider" aria-label="Seek track" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+              <div class="progress-track">
+                <div class="progress-fill" id="progress-fill"></div>
+                <div class="progress-handle" id="progress-handle"></div>
+              </div>
+            </div>
+            <span class="time-stamp" id="total-time">10:28</span>
+          </div>
+
+          <!-- Main Playback Controls Row -->
+          <div class="player-controls-row">
+            <!-- Shuffle -->
+            <button class="control-btn control-btn-secondary" id="shuffle-btn" type="button" title="Shuffle (Key: S)" aria-label="Toggle Shuffle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 3 21 3 21 8"></polyline>
+                <line x1="4" y1="20" x2="21" y2="3"></line>
+                <polyline points="21 16 21 21 16 21"></polyline>
+                <line x1="15" y1="15" x2="21" y2="21"></line>
+                <line x1="4" y1="4" x2="9" y2="9"></line>
+              </svg>
+            </button>
+
+            <!-- Previous -->
+            <button class="control-btn control-btn-skip" id="prev-btn" type="button" title="Previous Kalaam (Left Arrow)" aria-label="Previous Track">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2.5"></line>
+              </svg>
+            </button>
+
+            <!-- Main Play / Pause -->
+            <button class="control-btn control-btn-play" id="play-pause-btn" type="button" title="Play / Pause (Spacebar)" aria-label="Play Qawwali">
+              <span id="play-pause-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </span>
+            </button>
+
+            <!-- Next -->
+            <button class="control-btn control-btn-skip" id="next-btn" type="button" title="Next Kalaam (Right Arrow)" aria-label="Next Track">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2.5"></line>
+              </svg>
+            </button>
+
+            <!-- Loop -->
+            <button class="control-btn control-btn-secondary" id="loop-btn" type="button" title="Loop Mode (Key: L)" aria-label="Toggle Repeat">
+              <span class="loop-badge" style="display: none;">1</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="17 1 21 5 17 9"></polyline>
+                <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                <polyline points="7 23 3 19 7 15"></polyline>
+                <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Secondary Player Utilities Bar -->
+          <div class="player-secondary-bar">
+            <!-- Volume & Mute -->
+            <div class="volume-group">
+              <button class="control-btn" id="mute-btn" type="button" title="Mute / Unmute (Key: M)" aria-label="Mute Audio">
+                <span id="mute-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                  </svg>
+                </span>
+              </button>
+              <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="80" aria-label="Volume Slider">
+            </div>
+
+            <!-- Utilities: Queue, Sleep, Video, Share -->
+            <div class="utility-actions-group">
+              <button class="util-btn" id="open-queue-btn" type="button" title="Upcoming Songs Queue (Key: Q)" aria-label="Open Song Queue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>Queue</span>
+              </button>
+
+              <button class="util-btn" id="open-sleep-timer-btn" type="button" title="Set Sleep Timer" aria-label="Sleep Timer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>Sleep</span>
+                <span class="util-badge" id="sleep-timer-badge"></span>
+              </button>
+
+              <button class="util-btn" id="toggle-video-peek-btn" type="button" title="Watch Original Performance Video" aria-label="Toggle Video View">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Video</span>
+              </button>
+
+              <button class="util-btn" id="open-yt-external-btn" type="button" title="Open track on YouTube" aria-label="Open track on YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+              </button>
+
+              <button class="util-btn" id="share-track-btn" type="button" title="Share This Kalaam" aria-label="Share Track">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         PLAYLIST CURATIONS SECTION (Cards)
+         ======================================================================= -->
+    <section class="section" id="playlists" aria-labelledby="playlists-title">
+      <div class="section-header">
+        <span class="section-tag">ترتیبِ سماع</span>
+        <h2 class="section-title" id="playlists-title">Curated Qawwali Playlists</h2>
+        <p class="section-desc">Hand-selected devotional streams designed for nocturnal contemplation, spiritual ecstasy, and soulful relaxation.</p>
+        <div class="divider-ornament">✦ ✦ ✦</div>
+      </div>
+
+      <div class="playlists-grid">
+        <!-- Coke Studio Card -->
+        <div class="playlist-card active" data-playlist="coke-studio" tabindex="0" role="button" aria-label="Play Coke Studio Qawwalis">
+          <div>
+            <div class="playlist-card-top">
+              <span class="playlist-icon">🕌</span>
+              <span class="playlist-badge">Fusion & Devotion</span>
+            </div>
+            <h3 class="playlist-title">Coke Studio Qawwalis</h3>
+            <div class="playlist-urdu-title">کوک اسٹوڈیو قوالیاں</div>
+            <p class="playlist-desc">Orchestral grandeur meets timeless spirituality. Featuring Atif Aslam, Abida Parveen, Rahat Fateh Ali Khan, and Amjad Sabri.</p>
+          </div>
+          <div class="playlist-card-bottom">
+            <span class="playlist-count">8 Continuous Tracks</span>
+            <span class="playlist-play-cta">
+              Play Playlist
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- NFAK Classics Card -->
+        <div class="playlist-card" data-playlist="nfak" tabindex="0" role="button" aria-label="Play NFAK Classics">
+          <div>
+            <div class="playlist-card-top">
+              <span class="playlist-icon">🪕</span>
+              <span class="playlist-badge">Shahenshah-e-Qawwali</span>
+            </div>
+            <h3 class="playlist-title">NFAK Classics</h3>
+            <div class="playlist-urdu-title">شہنشاہِ قوالی: نصرت فتح علی خان</div>
+            <p class="playlist-desc">The raw, unadulterated ecstasy of Ustad Nusrat Fateh Ali Khan. Ecstatic claps, vocal improvisations, and divine surrender.</p>
+          </div>
+          <div class="playlist-card-bottom">
+            <span class="playlist-count">8 Legendary Kalaams</span>
+            <span class="playlist-play-cta">
+              Play Playlist
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Trending Qawwalis Card -->
+        <div class="playlist-card" data-playlist="trending" tabindex="0" role="button" aria-label="Play Trending Qawwalis">
+          <div>
+            <div class="playlist-card-top">
+              <span class="playlist-icon">✨</span>
+              <span class="playlist-badge">Sacred & Cinema</span>
+            </div>
+            <h3 class="playlist-title">Trending & Sacred Anthems</h3>
+            <div class="playlist-urdu-title">مقبولِ عام اور مقدس ترانے</div>
+            <p class="playlist-desc">Revered modern hymns including A.R. Rahman's Kun Faya Kun and Khwaja Mere Khwaja, alongside viral Dargah tributes.</p>
+          </div>
+          <div class="playlist-card-bottom">
+            <span class="playlist-count">7 Revered Hymns</span>
+            <span class="playlist-play-cta">
+              Play Playlist
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Shuffle All Card -->
+        <div class="playlist-card" data-playlist="all" tabindex="0" role="button" aria-label="Shuffle All Mehfil Tracks">
+          <div>
+            <div class="playlist-card-top">
+              <span class="playlist-icon">🔀</span>
+              <span class="playlist-badge">Infinite Stream</span>
+            </div>
+            <h3 class="playlist-title">All Mehfil Mixed</h3>
+            <div class="playlist-urdu-title">تمام کلاموں کا مجموعہ</div>
+            <p class="playlist-desc">An endless tapestry shuffling across classical mehfils, Coke Studio arrangements, and sacred anthems with zero repeats.</p>
+          </div>
+          <div class="playlist-card-bottom">
+            <span class="playlist-count">23 Timeless Pieces</span>
+            <span class="playlist-play-cta">
+              Start Shuffle
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         ROTATING SUFI COUPLETS / RUBAIYAT SECTION
+         ======================================================================= -->
+    <section class="section" id="couplets" aria-labelledby="couplets-heading">
+      <div class="section-header">
+        <span class="section-tag">کلامِ عارفاں</span>
+        <h2 class="section-title" id="couplets-heading">Verses of the Sufis</h2>
+        <p class="section-desc">Public-domain couplets from the masters of Ishq-e-Haqeeqi (Divine Love).</p>
+      </div>
+
+      <div class="couplet-container">
+        <div class="couplet-card">
+          <div class="couplet-arch-motif">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M 6 42 L 6 22 Q 6 6 24 6 Q 42 6 42 22 L 42 42" stroke-linecap="round"></path>
+              <circle cx="24" cy="18" r="3" fill="var(--gold-primary)"></circle>
+            </svg>
+          </div>
+
+          <div class="couplet-urdu-text" id="couplet-urdu">
+            چھاپ تلک سب چھینی رے موسے نیناں ملائیکے
+          </div>
+          <div class="couplet-hindi-text" id="couplet-hindi">
+            छाप तिलक सब छीनी रे मोसे नैना मिलाइके
+          </div>
+          <div class="couplet-translation-text" id="couplet-translation">
+            "You have taken away all my identity and markings, with just one glance of your eyes."
+          </div>
+
+          <div class="couplet-meta">
+            <span class="couplet-poet-text" id="couplet-poet">— Hazrat Amir Khusrau (1253–1325)</span>
+            <span class="couplet-context-text" id="couplet-context">Dedicated to his Murshid, Hazrat Nizamuddin Auliya</span>
+          </div>
+
+          <div class="couplet-nav">
+            <button class="couplet-arrow-btn" id="prev-couplet-btn" type="button" aria-label="Previous Couplet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="couplet-arrow-btn" id="next-couplet-btn" type="button" aria-label="Next Couplet">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         ABOUT MEHFIL & SUFI TRADITION (SAMA)
+         ======================================================================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="section-header">
+        <span class="section-tag">روایتِ سماع</span>
+        <h2 class="section-title" id="about-title">The Essence of Mehfil-e-Sama</h2>
+        <p class="section-desc">Discover the 700-year living tradition where sacred poetry, rhythmic clapping, and devotional music unite the seeker with the Divine.</p>
+        <div class="divider-ornament">✦ ✦ ✦</div>
+      </div>
+
+      <div class="about-section">
+        <div class="about-text-col">
+          <p>
+            <strong>Mehfil (محفل / महफ़िल)</strong> originates from the Arabic word meaning an intimate gathering. In the Chishti Sufi order of the Indian subcontinent, a <em>Mehfil-e-Sama</em> is not mere entertainment; it is an act of spiritual listening (<em>Sama</em>)—a vehicle for deep contemplation, detachment from worldly pride, and awakening of Divine love.
+          </p>
+          
+          <div class="about-quote-box">
+            <p>"Sama is the hearing of that which cannot be said, and the saying of that which cannot be heard."</p>
+            <span>— Traditional Sufi Adab</span>
+          </div>
+
+          <p>
+            The tradition was born in the 13th century through the spiritual synergy of Delhi's revered saint, <strong>Hazrat Nizamuddin Auliya</strong>, and his devoted poet-disciple, <strong>Hazrat Amir Khusrau</strong>. Khusrau fused classical Persian poetic meters with the indigenous folk melodies of Hindavi and Braj Bhasha, creating the musical architecture of Qawwali that continues to reverberate across shrines from Ajmer to Lahore.
+          </p>
+          <p>
+            Every track on Mehfil is curated to recreate that tranquil courtyard at midnight—surrounded by glowing lamps, flickering candles, and the persistent, heartbeat-like rhythm of the dholak.
+          </p>
+        </div>
+
+        <div class="about-visual-col">
+          <div class="heritage-feature-list">
+            <div class="heritage-item">
+              <div class="heritage-icon">🥁</div>
+              <div class="heritage-content">
+                <h4>The Rhythm of Dhikr (Taali & Dholak)</h4>
+                <p>The characteristic synchronized clapping (Taali) in Qawwali mirrors the dual beats of the human heart, continuously repeating the inner remembrance of God.</p>
+              </div>
+            </div>
+
+            <div class="heritage-item">
+              <div class="heritage-icon">🪗</div>
+              <div class="heritage-content">
+                <h4>The Harmonium & Drone</h4>
+                <p>The sustained reed drone creates a hypnotic acoustic foundation, freeing the lead singer (Ustad) to soar into improvised devotional poetry and high octaves.</p>
+              </div>
+            </div>
+
+            <div class="heritage-item">
+              <div class="heritage-icon">🕊️</div>
+              <div class="heritage-content">
+                <h4>Wajad & Spiritual Ecstasy</h4>
+                <p>When the poetry resonates deeply with the listener's longing, it leads to <em>Hal</em> (a spiritual state) and <em>Wajad</em> (ecstasy)—the transcendence of individual ego.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         FEATURED LEGENDS & MASTERS
+         ======================================================================= -->
+    <section class="section" id="artists" aria-labelledby="artists-title">
+      <div class="section-header">
+        <span class="section-tag">استادانِ فن</span>
+        <h2 class="section-title" id="artists-title">Pillars of Qawwali</h2>
+        <p class="section-desc">The master voices who carried the sacred fire across generations and across continents.</p>
+        <div class="divider-ornament">✦ ✦ ✦</div>
+      </div>
+
+      <div class="artists-grid">
+        <!-- NFAK -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a8.38 8.38 0 0 1 13 0"></path>
+              <path d="M12 11v3"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">Nusrat Fateh Ali Khan</h3>
+          <div class="artist-honorific">شہنشاہِ قوالی</div>
+          <span class="artist-title-tag">Shahenshah-e-Qawwali</span>
+          <p class="artist-bio">Possessor of an extraordinary vocal range and stamina, Ustad Nusrat introduced Qawwali to global audiences, performing with ecstatic devotion and unprecedented musical improvisation.</p>
+          <div class="artist-signature-kalaam">Signature: "Yeh Jo Halka Halka Suroor Hai"</div>
+        </div>
+
+        <!-- The Sabri Brothers -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="7" r="3.5"></circle>
+              <circle cx="15" cy="7" r="3.5"></circle>
+              <path d="M3 21a6 6 0 0 1 18 0"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">The Sabri Brothers</h3>
+          <div class="artist-honorific">صابرِی برادران</div>
+          <span class="artist-title-tag">Masters of Chishti Sama</span>
+          <p class="artist-bio">Led by Haji Ghulam Farid Sabri and Maqbool Ahmed Sabri, their resonant baritone voices and dramatic pauses set the benchmark for traditional shrine performances worldwide.</p>
+          <div class="artist-signature-kalaam">Signature: "Bhar Do Jholi Meri"</div>
+        </div>
+
+        <!-- Abida Parveen -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M6 21c0-4 3-7 6-7s6 3 6 7"></path>
+              <path d="M12 3v2"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">Abida Parveen</h3>
+          <div class="artist-honorific">ملکۂ صوفیانہ کلام</div>
+          <span class="artist-title-tag">Queen of Sufi Music</span>
+          <p class="artist-bio">The undisputed doyenne of mystical music, renowned for her thunderous renditions of Sindhi, Punjabi, and Persian verses by Bulleh Shah, Shah Abdul Latif Bhittai, and Rumi.</p>
+          <div class="artist-signature-kalaam">Signature: "Chaap Tilak" & "Tu Jhoom"</div>
+        </div>
+
+        <!-- Rahat Fateh Ali Khan -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M5.5 21a8.38 8.38 0 0 1 13 0"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">Rahat Fateh Ali Khan</h3>
+          <div class="artist-honorific">وارثِ نصرت</div>
+          <span class="artist-title-tag">Torchbearer of Gharana</span>
+          <p class="artist-bio">Trained directly by his uncle Nusrat Fateh Ali Khan from the age of seven, he bridges classical gharana virtuosity with modern cinematic ballads and Coke Studio masterpieces.</p>
+          <div class="artist-signature-kalaam">Signature: "Afreen Afreen" & "O Re Piya"</div>
+        </div>
+
+        <!-- Fareed Ayaz & Abu Muhammad -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="8" r="3"></circle>
+              <circle cx="15" cy="8" r="3"></circle>
+              <path d="M4 21c0-3.5 3-6 8-6s8 2.5 8 6"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">Fareed Ayaz & Abu Muhammad</h3>
+          <div class="artist-honorific">قوال بچّوں کا گھرانہ</div>
+          <span class="artist-title-tag">Qawwal Bachhon Ka Gharana</span>
+          <p class="artist-bio">Direct musical descendants of Hazrat Amir Khusrau's original 13th-century ensemble, preserving rigorous Persian, Urdu, and Purbi classical grammar with unsurpassed purity.</p>
+          <div class="artist-signature-kalaam">Signature: "Ghar Nari Ganwari" & "Shikwa"</div>
+        </div>
+
+        <!-- Aziz Mian -->
+        <div class="artist-card">
+          <div class="artist-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="7" r="4"></circle>
+              <path d="M6 21c0-4 2.5-6.5 6-6.5s6 2.5 6 6.5"></path>
+            </svg>
+          </div>
+          <h3 class="artist-name">Aziz Mian Qawwal</h3>
+          <div class="artist-honorific">فلسفیٔ قوالی</div>
+          <span class="artist-title-tag">The Philosopher of Qawwali</span>
+          <p class="artist-bio">Master of dramatic arguments with the Almighty, rapid-fire declamatory poetry, and deeply intellectual discourse exploring human destiny and divine justice.</p>
+          <div class="artist-signature-kalaam">Signature: "Main Sharabi" & "Teri Soorat"</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         FREQUENTLY ASKED QUESTIONS (SEO ACCORDION)
+         ======================================================================= -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section-header">
+        <span class="section-tag">اکثر پوچھے گئے سوالات</span>
+        <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about listening to Mehfil, audio sourcing, and Sufi traditions.</p>
+        <div class="divider-ornament">✦ ✦ ✦</div>
+      </div>
+
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item expanded">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span>What is Mehfil and how does this Qawwali radio work?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mehfil is a free, ad-free ambient web radio designed to recreate the serene, meditative environment of a late-night Sufi gathering (<em>Mehfil-e-Sama</em>). Simply tap "Enter the Mehfil" to start an uninterrupted stream of classical and contemporary Qawwalis. You can switch between curated playlists like Coke Studio, Nusrat Fateh Ali Khan Classics, and Trending Anthems, or shuffle across all tracks.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Why does Mehfil play audio through YouTube instead of hosting files?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mehfil strictly streams all audio via YouTube's official IFrame Player API. We do not download, store, or re-host any copyrighted audio files on our servers. Every play routes directly through YouTube's embedded infrastructure, ensuring that the original artists, record labels (such as Coke Studio, EMI Pakistan, and Oriental Star Agencies), and copyright holders receive full view counts, engagement, and royalties.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Who was Hazrat Amir Khusrau and why is he called the Father of Qawwali?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Hazrat Amir Khusrau (1253–1325 CE) was a polymath, Sufi mystic, poet, and musician who lived in Delhi as the prime disciple of Hazrat Nizamuddin Auliya. He synthesized Persian modal systems (Maqam) with Indian classical ragas to invent the Qawwali vocal format as an accessible devotional medium. He is also credited with developing Hindustani musical instruments like the sitar and tabla.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Can I listen to Mehfil on mobile with my screen locked?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Yes! Mehfil is built with the native HTML5 Media Session API. On modern mobile browsers (such as Chrome on Android and Safari on iOS), track titles, artist names, album art, and lock-screen playback controls (Play, Pause, Next, Seek) will appear in your notification shade and lock screen.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>How can I add my own YouTube Qawwali playlists or suggest tracks?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mehfil is completely transparent and configurable. All tracks are defined in <code>js/playlists.js</code>. If you are hosting your own copy on Netlify, GitHub Pages, or Vercel, you can simply paste YouTube video IDs or even full YouTube Playlist IDs into the configuration file. You can also send suggestions via the contact email in the footer.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Is Mehfil completely free to listen to? Are there any subscriptions?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mehfil is 100% free with zero sign-ups, no tracking cookies, and no commercial advertisements on our website. It is maintained purely as a cultural tribute to the sublime heritage of Sufi devotional music. If you wish to support server hosting and chai, you can use the "Chai" button to contribute voluntarily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- YouTube Audio Compliance Disclaimer (Prominent Box) -->
+      <div class="footer-compliance-box">
+        <span class="compliance-icon" aria-hidden="true">📜</span>
+        <div class="compliance-text">
+          <strong>Audio Streaming & Copyright Disclaimer:</strong>
+          Audio plays through YouTube's embedded player. Nothing is hosted on this site; all rights, royalties, and views remain entirely with the original artists, producers, and recording labels (including Coke Studio, EMI Pakistan, Oriental Star Agencies, and Universal Music).
+        </div>
+      </div>
+
+      <div class="footer-top">
+        <div>
+          <a href="#hero" class="brand-group">
+            <div class="brand-emblem" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z" fill="var(--amber-candle)"></path>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">MEHFIL</span>
+              <span class="brand-sub">محفلِ سماع • Ambient Qawwali Radio</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            A serene sanctuary for Sufi music lovers. Bringing the divine ecstasy of Amir Khusrau, Bulleh Shah, and Nusrat Fateh Ali Khan to listeners worldwide.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Radio Player</a></li>
+            <li><a href="#playlists">Playlists</a></li>
+            <li><a href="#couplets">Sufi Couplets</a></li>
+            <li><a href="#about">About Sama</a></li>
+            <li><a href="#artists">Featured Legends</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Community & Extras</h4>
+          <ul class="footer-links">
+            <li><button type="button" class="open-support-trigger">Support with Chai</button></li>
+            <li><button type="button" id="footer-shortcuts-trigger" onclick="MehfilApp.toggleShortcutsModal(true)">Keyboard Shortcuts</button></li>
+            <li><button type="button" class="install-app-btn">Install Mobile App</button></li>
+            <li><a href="mailto:contact@mehfil.radio">Suggest a Qawwali</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Mehfil Radio (محفل). Dedicated to the eternal seekers of Sama.
+        </div>
+        <div>
+          Crafted with devotion • No sign-up • No ads
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       NOW PLAYING QUEUE DRAWER
+       ========================================================================= -->
+  <div class="queue-backdrop" id="queue-backdrop" aria-hidden="true"></div>
+  <aside class="queue-drawer" id="queue-drawer" aria-label="Upcoming Songs Queue">
+    <div class="queue-header">
+      <div class="queue-title-area">
+        <h3>Now Playing Queue</h3>
+        <span id="queue-track-count">23 Kalaams</span>
+      </div>
+      <button class="close-btn" id="close-queue-btn" type="button" aria-label="Close Queue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="queue-search-bar">
+      <div class="search-input-wrapper">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="queue-search-input" id="queue-search-input" placeholder="Search by title, artist, or Urdu..." aria-label="Filter queue">
+      </div>
+    </div>
+
+    <div class="queue-list" id="queue-list" role="list">
+      <!-- Generated dynamically by app.js -->
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       MODALS: SUPPORT, SLEEP TIMER, KEYBOARD SHORTCUTS, VIDEO PEEK
+       ========================================================================= -->
+  
+  <!-- 1. Support Mehfil Modal (UPI QR) -->
+  <div class="modal-backdrop" id="support-modal-backdrop" aria-hidden="true"></div>
+  <div class="modal" id="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-modal-title">
+    <div class="modal-header">
+      <h3 id="support-modal-title">Support Mehfil ☕</h3>
+      <button class="close-btn" id="close-support-btn" type="button" aria-label="Close Support Modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <p style="font-size: 0.92rem; color: var(--text-secondary); text-align: center; margin-bottom: 12px;">
+      Mehfil is 100% free and ad-free. If this music brought peace to your evening, buy the curator a cup of chai!
+    </p>
+    
+    <div class="qr-container">
+      <img src="./img/upi-qr.svg" alt="Mehfil UPI QR Code" width="160" height="160">
+    </div>
+
+    <div class="upi-copy-row">
+      <span class="upi-id-code">mehfil@upi</span>
+      <button class="copy-btn" id="copy-upi-btn" type="button">Copy UPI</button>
+    </div>
+
+    <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+      Scan with Google Pay, PhonePe, Paytm, or any UPI app. Shukriya!
+    </p>
+  </div>
+
+  <!-- 2. Sleep Timer Modal -->
+  <div class="modal-backdrop" id="sleep-timer-backdrop" aria-hidden="true"></div>
+  <div class="modal" id="sleep-timer-modal" role="dialog" aria-modal="true" aria-labelledby="sleep-modal-title">
+    <div class="modal-header">
+      <h3 id="sleep-modal-title">Sleep Timer 🌙</h3>
+      <button class="close-btn" id="close-sleep-timer-btn" type="button" aria-label="Close Sleep Timer Modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+      Fall asleep to devotional Sama. Playback will gradually fade out over the final 20 seconds.
+    </p>
+
+    <div class="sleep-presets-grid">
+      <button class="sleep-opt-btn" data-minutes="15" type="button">15 Minutes</button>
+      <button class="sleep-opt-btn" data-minutes="30" type="button">30 Minutes</button>
+      <button class="sleep-opt-btn" data-minutes="45" type="button">45 Minutes</button>
+      <button class="sleep-opt-btn" data-minutes="60" type="button">60 Minutes</button>
+    </div>
+
+    <button class="sleep-opt-btn" data-minutes="0" type="button" style="width: 100%; margin-top: 12px; color: var(--text-muted);">
+      Turn Timer Off
+    </button>
+  </div>
+
+  <!-- 3. Keyboard Shortcuts Modal -->
+  <div class="modal-backdrop" id="shortcuts-modal-backdrop" aria-hidden="true"></div>
+  <div class="modal" id="shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-modal-title">
+    <div class="modal-header">
+      <h3 id="shortcuts-modal-title">Keyboard Shortcuts ⌨️</h3>
+      <button class="close-btn" id="close-shortcuts-btn" type="button" aria-label="Close Shortcuts Modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="shortcuts-list">
+      <div class="shortcut-row">
+        <span>Play / Pause</span>
+        <kbd class="key-kbd">Space</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Next Track</span>
+        <kbd class="key-kbd">→</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Previous Track</span>
+        <kbd class="key-kbd">←</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Seek +10s / -10s</span>
+        <kbd class="key-kbd">Shift + → / ←</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Volume Up / Down</span>
+        <kbd class="key-kbd">↑ / ↓</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Mute / Unmute</span>
+        <kbd class="key-kbd">M</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Toggle Shuffle</span>
+        <kbd class="key-kbd">S</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Toggle Loop</span>
+        <kbd class="key-kbd">L</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Now Playing Queue</span>
+        <kbd class="key-kbd">Q</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Zen / Cinema Mode</span>
+        <kbd class="key-kbd">Z</kbd>
+      </div>
+      <div class="shortcut-row">
+        <span>Shortcuts Help</span>
+        <kbd class="key-kbd">?</kbd>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Video Peek Modal (Watch embedded YouTube video) -->
+  <div class="modal-backdrop" id="video-peek-backdrop" aria-hidden="true"></div>
+  <div class="modal video-peek-modal" id="video-peek-modal" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div class="modal-header">
+      <h3 id="video-modal-title">Original Performance Video 🎥</h3>
+      <button class="close-btn" id="close-video-peek-btn" type="button" aria-label="Close Video Peek">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="video-frame-container" id="modal-yt-host">
+      <!-- Container where YouTube iframe moves when peek modal is open -->
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 0.8rem;">
+      <span style="color: var(--text-muted);">Direct embed from official channel.</span>
+      <a id="peek-direct-yt-link" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" style="color: var(--gold-primary); text-decoration: none; font-weight: 600;">Open on YouTube ↗</a>
+    </div>
+  </div>
+
+  <!-- Hidden Container for YouTube Iframe when not in peek modal -->
+  <div id="hidden-yt-host">
+    <div id="yt-container">
+      <div id="yt-player-frame"></div>
+    </div>
+  </div>
+
+  <!-- Global Toast Feedback -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- YouTube IFrame API (pre-loaded for instant playback) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- Scripts -->
+  <script src="./js/playlists.js"></script>
+  <script src="./js/couplets.js"></script>
+  <script src="./js/player.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
